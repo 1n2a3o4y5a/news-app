@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import ListItem from './components/ListItem';
+import articles from './dummies/articles';
 
 
 const styles = StyleSheet.create({
@@ -38,14 +39,17 @@ const styles = StyleSheet.create({
 
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <ListItem 
-      title="Just add your desired image size (width & height) after our URL, and you'll get a random image." 
-      imageUrl="https://picsum.photos/536/354" 
-      author="SampleNews"
+  const items = articles.map((article, index) => {
+    return (
+      <ListItem
+        imageUrl={article.urlToImage}
+        title={article.title}
+        author={article.author}
+        key={index}
       />
-    </View>
-  );
+    );
+  });
+  
+return <View style={styles.container}>{items}</View>
 }
 
