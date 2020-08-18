@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
+import ListItem from './components/ListItem';
 
 
 const styles = StyleSheet.create({
@@ -39,21 +40,11 @@ const styles = StyleSheet.create({
 export default function App() {
   return (
     <View style={styles.container}>
-      <View style={styles.itemContainer}>
-        <View style={styles.leftContainer}>
-          <Image style={{width: 100, height: 100}}
-                 source={{url :'https://picsum.photos/536/354'}}
-          ></Image>
-        </View>
-        <View style={styles.rightContainer}>
-          <Text numberOfLines={3} style={styles.text}>
-          Just add your desired image size (width & height) after our URL, and you'll get a random image.
-          </Text>
-          <Text style={styles.subText}>
-            React News
-          </Text>
-        </View>
-      </View>
+      <ListItem 
+      title="Just add your desired image size (width & height) after our URL, and you'll get a random image." 
+      imageUrl="https://picsum.photos/536/354" 
+      author="SampleNews"
+      />
     </View>
   );
 }
